@@ -12,5 +12,5 @@ class Car extends Model
     public $timestamps = true;
     protected $dateFormat = 'h:m:s';
 
-
+    protected $fillable = ['name', 'founded', 'description'];
 }
