@@ -9,6 +9,7 @@
     <div class="flex justify-center pt-20">
         <form action="/cars/{{ $car->id }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="block">
                 <input type="text" name="name" id="name" class="block placeholder-gray-400  shadow-5xl mb-10 p-2 w-80 italic" value="{{ $car->name }}">
 
