@@ -9,8 +9,7 @@ class Car extends Model
 {
     use HasFactory;
     protected $table = 'cars';
-    public $timestamps = true;
-    protected $dateFormat = 'h:m:s';
+
 
     protected $fillable = ['name', 'founded', 'description'];
 }

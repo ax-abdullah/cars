@@ -63,9 +63,10 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        $car            = Car::find($id)->first();
+        // $car = Car::find($id)->first();
+        // $car            = Car::where('id', $id)->first();
         return view('cars.edit')->with('car', $car);
     }
 
@@ -92,10 +93,9 @@ class CarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
         // $car            = Car::where('id', $id)->delete();
-        $car            = Car::find($id)->first();
         $car->delete();
         return redirect('/cars');
     }
