@@ -13,6 +13,12 @@
             <div class="m-auto">
                 <div class="float-right">
                     <a href="cars/{{ $car->id }}/edit " class=" border-b border-dotted border-green-500 pb-1 italic text-green-500">Edit &rarr;</a>
+
+                    <form action="/cars/{{ $car->id }}" class="pt-3" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class=" border-b border-dotted border-red-500 pb-1 italic text-red-500">Delete &rarr;</button>
+                    </form>
                 </div>
                 <span class="uppercase text-blue-500 font-bold text-xs italic">
                     Founded: {{ $car->founded }}
