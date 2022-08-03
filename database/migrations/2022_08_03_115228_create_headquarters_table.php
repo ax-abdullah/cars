@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnginesTable extends Migration
+class CreateHeadquartersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateEnginesTable extends Migration
      */
     public function up()
     {
-        Schema::create('engines', function (Blueprint $table) {
+        Schema::create('headquarters', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('model_id');
-            $table->string('engine_name');
+            $table->unsignedInteger('car_id');
+            $table->string('headquarters');
+            $table->string('country');
             $table->timestamps();
-            $table->foreign('model_id')
+            $table->foreign('car_id')
                   ->references('id')
-                  ->on('car_models')
+                  ->on('cars')
                   ->onDelete('cascade');
+
         });
     }
 
@@ -32,6 +34,6 @@ class CreateEnginesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('engines');
+        Schema::dropIfExists('headquarters');
     }
 }
