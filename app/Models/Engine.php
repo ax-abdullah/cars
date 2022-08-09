@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Engine extends Model
 {
     use HasFactory;
+    public $timestamps = 'timestamps' ;
+
+    public function car(){
+        return $this->belongsTo(Car::class);
+    }
 }

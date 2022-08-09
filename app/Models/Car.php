@@ -19,4 +19,10 @@ class Car extends Model
     public function headquarter(){
         return $this->hasOne(Headquarter::class);
     }
+    public function engines(){
+        return $this->hasManyThrough(Engine::class, CarModel::class,
+        'car_id',   // Foreign key on CarModels Table
+        'model_id'  // Foreign key on Engines Table
+    );
+    }
 }

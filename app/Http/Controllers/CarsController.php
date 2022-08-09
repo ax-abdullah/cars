@@ -58,7 +58,8 @@ class CarsController extends Controller
     {
         $car    = Car::find($id);
         $headquarter = Headquarter::find($id);
-        var_dump($headquarter);
+        // var_dump($headquarter);
+        // dd($car->engines);
         return view('cars.show')->with('car', $car);
     }
 
