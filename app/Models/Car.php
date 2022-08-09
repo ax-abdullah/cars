@@ -25,4 +25,9 @@ class Car extends Model
         'model_id'  // Foreign key on Engines Table
     );
     }
+    public function productionDate(){
+        return $this->hasOneThrough(CarProductionDate::class, CarModel::class, 'car_id', // foreign key for car table
+        'model_id'// foreign key for car_production_dates table
+    );
+    }
 }

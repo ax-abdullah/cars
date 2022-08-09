@@ -14,10 +14,11 @@
             </span>
 
         <p class="text-lg text-gray-700 py-6">{{ $car->description }}</p>
-        <table class="table-auto m-auto">
+        <table class="table-auto m-auto text-center">
             <tr class="bg-blue-100">
-                <th class="w-1/2 p-2 border-2 border-gray-500"> Model </th>
-                <th class="w-1/2 p-2 border-2 border-gray-500"> Engines </th>
+                <th class="w-1/4 p-2 border-2 border-gray-500"> Model </th>
+                <th class="w-1/4 p-2 border-2 border-gray-500"> Engines </th>
+                <th class="w-1/4 p-2 border-2 border-gray-500"> Producton Date</th>
             </tr>
             {{-- <tr class="bg-blue-100">
             </tr> --}}
@@ -32,6 +33,9 @@
                                 {{ $engine->engine_name}}
                             @endif
                         @endforeach
+                    </td>
+                    <td class="border-2 border-gray-500 p-2">
+                        {{ date('d-m-Y', strtotime($car->productionDate->created_at)) }}
                     </td>
                 </tr>
             @empty
