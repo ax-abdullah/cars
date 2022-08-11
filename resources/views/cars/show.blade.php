@@ -19,6 +19,7 @@
                 <th class="w-1/4 p-2 border-2 border-gray-500"> Model </th>
                 <th class="w-1/4 p-2 border-2 border-gray-500"> Engines </th>
                 <th class="w-1/4 p-2 border-2 border-gray-500"> Producton Date</th>
+                <th class="w-1/4 p-2 border-2 border-gray-500"> Products</th>
             </tr>
             {{-- <tr class="bg-blue-100">
             </tr> --}}
@@ -36,6 +37,11 @@
                     </td>
                     <td class="border-2 border-gray-500 p-2">
                         {{ date('d-m-Y', strtotime($car->productionDate->created_at)) }}
+                    </td>
+                    <td class="border-2 border-gray-500 p-2">
+                        @foreach ($car->products as $product)
+                            {{$product->name}}
+                        @endforeach
                     </td>
                 </tr>
             @empty

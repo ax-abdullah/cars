@@ -30,4 +30,7 @@ class Car extends Model
         'model_id'// foreign key for car_production_dates table
     );
     }
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
 }
