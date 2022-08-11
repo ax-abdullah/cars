@@ -20,4 +20,13 @@
             </div>
         </form>
     </div>
+    @if ($errors->any())
+        <ul class="w-4/8 m-auto text-center">
+            @foreach ($errors->all() as $error)
+                <li class="text-red-500 list-none">
+                    {{ $error }}
+                </li>
+            @endforeach
+        </ul>
+    @endif
 @endsection
