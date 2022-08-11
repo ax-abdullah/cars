@@ -41,18 +41,25 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateValidationRequest $request)
+    public function store(Request $request)
     {
-        $request->validated();
-        // $request->validate([
-        //     'name'          => [new Uppercase], ['required|unique:cars'],
-        //     'founded'       => 'required|integer|gt:1800|max:2022',
-        //     'description'   => 'required|string'
-        // ]);
+        // $request->validated();
+        $request->validate([
+            'name'          => [new Uppercase], ['required|unique:cars'],
+            'founded'       => 'required|integer|gt:1800|max:2022',
+            'description'   => 'required|string',
+            'image'         => 'required|mimes:jpg,jpeg,png|max:5048'
+        ]);
+
+        $imageNewName = time() . '-' . $request->name . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images'), $imageNewName);
+
         $car = Car::create([
             'name'          => $request->input('name'),
             'founded'       => $request->input('founded'),
-            'description'   => $request->input('description')
+            'description'   => $request->input('description'),
+            'image_path'    => $imageNewName
         ]);
         return redirect('/cars');
     }

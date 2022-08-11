@@ -27,7 +27,8 @@ class CreateValidationRequest extends FormRequest
         return [
             'name'          => [new Uppercase], ['required|unique:cars'],
             'founded'       => 'required|integer|gt:1800|max:2022',
-            'description'   => 'required|string'
+            'description'   => 'required|string',
+            'image'         => 'required|mimes:jpg,jpeg,png|max:5048'
         ];
     }
 }

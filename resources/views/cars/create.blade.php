@@ -7,9 +7,10 @@
         </div>
     </div>
     <div class="flex justify-center pt-20">
-        <form action="/cars" method="POST">
+        <form action="/cars" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="block">
+                <input type="file" name="image" id="name" class="block placeholder-gray-400  shadow-5xl mb-10 p-2 w-80 italic" >
                 <input type="text" name="name" id="name" class="block placeholder-gray-400  shadow-5xl mb-10 p-2 w-80 italic" placeholder="Brand name...">
 
                 <input type="text" name="founded" id="founded" class="block placeholder-gray-400  shadow-5xl mb-10 p-2 w-80 italic" placeholder="Founded...">
