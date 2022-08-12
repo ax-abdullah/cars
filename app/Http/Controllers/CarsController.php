@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\Headquarter;
 use App\Models\Product;
 use App\Rules\Uppercase;
+use Illuminate\Support\Facades\File;
 
 class CarsController extends Controller
 {
@@ -117,8 +118,15 @@ class CarsController extends Controller
      */
     public function destroy(Car $car)
     {
+        // File
         // $car            = Car::where('id', $id)->delete();
-        $car->delete();
+        if(\File::exists(public_path('images/'.$car->image_path))){
+            // dd($car->image_path);
+            File::delete(public_path('images/'.$car->image_path));
+            }else{
+                dd('File does not exists.');
+            }
+            $car->delete();
         return redirect('/cars');
     }
 }
