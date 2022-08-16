@@ -49,7 +49,7 @@ class CarsController extends Controller
             'name'          => [new Uppercase], ['required|unique:cars'],
             'founded'       => 'required|integer|gt:1800|max:2022',
             'description'   => 'required|string',
-            'image'         => 'required|mimes:jpg,jpeg,png|max:5048'
+            'image'         => 'somtimes|mimes:jpg,jpeg,png|max:5048'
         ]);
 
         $imageNewName = time() . '-' . $request->name . '.' . $request->image->extension();
